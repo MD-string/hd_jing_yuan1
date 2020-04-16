@@ -1,0 +1,250 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/bg_white"
+              android:orientation="vertical"
+              android:visibility="visible" >
+
+    <RelativeLayout
+        android:id="@+id/id_switch_tab_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="2.6dp" >
+
+            <LinearLayout
+                android:id="@+id/ll_tab_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                android:visibility="visible" >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_not_onlie"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="离线报警"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_1"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_duan_dian"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:id="@+id/tv_tab_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="断电报警"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_2"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:padding="3dp"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:src="@mipmap/icon_error_unload"
+                            android:layout_height="30dp"/>
+                        <TextView
+                            android:id="@+id/tv_tab_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="异常卸货"
+                            android:layout_marginTop="3dp"
+                            android:textColor="@color/gh_blue"
+                            android:textSize="11sp" />
+                        <TextView
+                            android:id="@+id/tv_number_3"
+                            android:layout_width="wrap_content"
+                            android:textSize="11sp"
+                            android:textColor="@color/gh_blue"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:id="@+id/rl_message"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_height="20dp">
+                        <TextView
+                            android:id="@+id/tv_message_1"
+                            android:layout_width="14dp"
+                            android:layout_centerHorizontal="true"
+                            android:text="2"
+                            android:textSize="7sp"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:background="@mipmap/icon_num_point"
+                            android:layout_height="14dp"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_error_undian"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="异常断电"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_4"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_park_alrm"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="停车警报"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_5"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="gone"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_out_error"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_6"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/id_tab_line_iv"
+        android:layout_width="80dp"
+        android:layout_height="2dp"
+        android:visibility="gone"
+        android:layout_marginLeft="15dp"
+        android:background="@color/hand_blue" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:visibility="gone"
+        android:background="#38999999" />
+
+</LinearLayout>

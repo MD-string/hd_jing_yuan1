@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_dialog_bg"
+    >
+    <TextView
+        android:id="@+id/tv_wei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:layout_marginLeft="4dp"
+        android:paddingLeft="4.4dp"
+        android:paddingBottom="5.3dp"
+        android:textSize="9sp"
+        android:textColor="@color/white"
+        android:text="重量:22222.00"/>
+
+
+</RelativeLayout>

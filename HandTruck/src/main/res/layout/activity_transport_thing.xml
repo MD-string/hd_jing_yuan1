@@ -1,0 +1,65 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/LinearLayoutBgV"
+    tools:context=".activity.TruckInfoActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_item_height"
+        android:background="@color/hand_blue"
+        android:fitsSystemWindows="true"
+        >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="bottom"
+            android:text="标题"
+            android:paddingBottom="8dp"
+            android:textColor="@color/bg_white"
+            android:textSize="19sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:drawableLeft="@mipmap/title_back"
+            android:gravity="center_vertical"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:text="返回"
+            android:textColor="@color/bg_white"
+            android:textSize="16sp"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_top"
+        android:layout_height="match_parent">
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:id="@+id/ll_tab_title"
+            layout="@layout/frg_title_1" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/id_page_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:layout_below="@id/ll_tab_title" >
+        </android.support.v4.view.ViewPager>
+    </RelativeLayout>
+</LinearLayout>

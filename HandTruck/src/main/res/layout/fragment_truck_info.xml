@@ -1,0 +1,67 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/LinearLayoutBgV"
+    tools:context=".activity.TruckInfoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/hand_blue"
+        android:visibility="visible"
+        android:layout_height="@dimen/head_w">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="bottom"
+            android:text="标题"
+            android:paddingBottom="10dp"
+            android:textColor="@color/bg_white"
+            android:textSize="19sp"
+            />
+
+        <ImageView
+            android:id="@+id/tv_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/nva_vehicle_addition"
+            />
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.hand.handtruck.Widget.listview.XListView
+            android:id="@+id/list_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="true"
+            android:fadingEdge="none"
+            android:divider="@null"
+            android:fastScrollEnabled="false"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="vertical"
+            android:scrollingCache="false"
+            android:transcriptMode="disabled"
+            android:visibility="visible">
+
+        </com.hand.handtruck.Widget.listview.XListView>
+
+        <com.hand.handtruck.Widget.sortlistviewdemo.WaveSideBar
+            android:id="@+id/sideBar"
+            android:layout_width="match_parent"
+            android:layout_marginTop="60dp"
+            android:layout_height="match_parent"
+            />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       7
+    </FrameLayout>
+</LinearLayout>

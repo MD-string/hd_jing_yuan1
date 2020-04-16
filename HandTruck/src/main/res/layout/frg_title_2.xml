@@ -1,0 +1,223 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/bg_white"
+              android:orientation="vertical"
+              android:visibility="visible" >
+
+    <RelativeLayout
+        android:id="@+id/id_switch_tab_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="2.6dp" >
+
+            <LinearLayout
+                android:id="@+id/ll_tab_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                android:visibility="visible" >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_form_all"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="全部"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_blue"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_1"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_blue"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_form_trnsporting"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:id="@+id/tv_tab_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="运输中"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_2"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_normal_out"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:id="@+id/tv_tab_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="正常卸货"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_3"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_no_wei"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="未配围栏"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_4"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="gone"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_dev_error"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="设备异常"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_5"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/icon_out_error"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="异常卸货"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_6"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/id_tab_line_iv"
+        android:layout_width="80dp"
+        android:layout_height="2dp"
+        android:visibility="gone"
+        android:layout_marginLeft="15dp"
+        android:background="@color/hand_blue" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:visibility="gone"
+        android:background="#38999999" />
+
+</LinearLayout>

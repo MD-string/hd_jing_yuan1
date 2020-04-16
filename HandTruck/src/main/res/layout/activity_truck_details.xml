@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LinearLayoutBgV"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hand.handtruck.activity.TruckDetailsActivity">
+
+    <include layout="@layout/layout_common_title"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_white"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                style="@style/paddingLR12"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height45"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/item_range"
+                android:paddingTop="@dimen/item_range"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/truck_number"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_detail_truck_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                style="@style/line_h_board12dp"></View>
+
+            <LinearLayout
+                style="@style/paddingLR12"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height45"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/item_range"
+                android:paddingTop="@dimen/item_range"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/device_number"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_detail_device_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                style="@style/line_h_board12dp"></View>
+
+            <LinearLayout
+                style="@style/paddingLR12"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height45"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/item_range"
+                android:paddingTop="@dimen/item_range"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/weight"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_detail_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                style="@style/line_h_board12dp"></View>
+
+            <LinearLayout
+                style="@style/paddingLR12"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height45"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/item_range"
+                android:paddingTop="@dimen/item_range"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/weight_update_time"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_detail_weight_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                style="@style/line_h_board12dp"></View>
+
+            <LinearLayout
+                style="@style/paddingLR12"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height45"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/item_range"
+                android:paddingTop="@dimen/item_range"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/lng"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_detail_lng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+            <View
+                style="@style/line_h_board12dp"></View>
+            <LinearLayout
+                style="@style/paddingLR12"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height45"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/item_range"
+                android:paddingTop="@dimen/item_range"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/lat"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_detail_lat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+            <View
+                style="@style/line_h_board12dp"></View>
+            <LinearLayout
+                style="@style/paddingLR12"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height45"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/item_range"
+                android:paddingTop="@dimen/item_range"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/location_update_time"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_detail_location_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/txt_content_black"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                style="@style/line_h_board12dp"></View>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

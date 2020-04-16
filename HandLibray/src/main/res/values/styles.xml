@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/hand_blue</item>
+        <item name="colorPrimaryDark">@color/hand_blue</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!--底部弹窗的显示方式-->
+    <style name="PopupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/bottom_out</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,48 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LinearLayoutBgV"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hand.handtruck.activity.AddTruckActivity">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:background="@mipmap/icon_top_bg"
+        android:visibility="visible"
+        android:layout_height="@dimen/home_item_height">
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@mipmap/title_back"
+            android:paddingLeft="12dp"
+            android:paddingTop="20dp"
+            android:gravity="center_vertical"
+            android:text="返回"
+            android:textColor="@color/bg_white"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="bottom"
+            android:text="车辆列表"
+            android:paddingBottom="10dp"
+            android:textColor="@color/bg_white"
+            android:textSize="19sp"
+            />
+
+    </RelativeLayout>
+
+    <ExpandableListView
+        android:id="@+id/list_1"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_title"
+        android:layout_height="match_parent">
+    </ExpandableListView>
+
+</RelativeLayout>

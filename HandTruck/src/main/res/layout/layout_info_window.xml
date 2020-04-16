@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="230dp"
+    android:layout_height="140dp"
+    android:background="@drawable/custom_info_bubble"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_map_deviceID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设备ID:232527"
+        android:textColor="@color/txt_content_black"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/tv_map_truckNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车牌号码:粤A88888"
+        android:textColor="@color/txt_content_black"
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/corner_4dp"
+        />
+    <TextView
+        android:id="@+id/tv_map_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="重量:25854.33吨"
+        android:textColor="@color/txt_content_black"
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/corner_4dp"
+        />
+    <TextView
+        android:id="@+id/tv_map_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="时间:22018-05-16 09:10:10"
+        android:textColor="@color/txt_content_black"
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/corner_4dp"
+        />
+
+
+</LinearLayout>

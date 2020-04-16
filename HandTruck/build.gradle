@@ -1,0 +1,139 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "com.hand.handtruck99"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi-v7a"
+        }
+        multiDexEnabled true
+    }
+    signingConfigs {
+        release {
+            keyAlias 'hande'
+            keyPassword '123456'
+            storeFile file('../hande.jks')
+            storePassword '123456'
+        }
+
+    }
+
+    sourceSets.main {
+        jniLibs.srcDir 'libs'
+        jni.srcDirs = []
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+//    //默认的，会有release和隐藏的debug
+//    buildTypes {
+//        release {
+//            shrinkResources true
+//        }
+//
+//    }
+
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+    /**
+     * 多渠道打包
+     * 1、applicationId      = 软件-包名
+     * 2、app_name           = 资源文件string.xml下的，需要建立不同的res目录
+     * 3、BASE_SERVER_URL    = 基础服务器地址，在自动创建BuildConfig下
+     * 4、APP_File_Provider  = 文件provider，一般是包名+fileprovider命名
+     * 5、其他所需要配置的百度Key，极光推送key，友盟key等等...
+     * */
+
+    //applicationId	某个取到的应用包名
+    //resValue	针对资源文件，包含string.xml等，注意两点，（1）keyname一定要有且一致 （2）原本main目录下的keyname注释掉，分别增加多渠道通道的资源文件库，后面会截图显示
+    //buildConfigField	自动建立BuildConfig文件中的动态常量，注意String值的话是‘ “ xxx ” ’这样的格式
+    //manifestPlaceholders	清单文件里可动态替换的内容，这里一般由打包的apk名字，还有fileprovider等等，还有各种第三方key，比如友盟，极光推送等等
+    //
+    //链接：https://www.jianshu.com/p/9bfc4b23b2c0
+//
+//    productFlavors{
+//
+//        //我的APP
+//        handtruck6{
+//            applicationId "com.hand.handtruck6"
+//            resValue "string", "app_name", "万年青流向管控"
+//            resValue "String"   , "APP_File_Provider"      , '"com.hand.handtruck.provider6"'
+//            resValue "String"   , "Buly_ID"      , '"3bf1d06b92"'
+//            resValue "String"   , "Name_type"      , '"handtruck6"'
+//            resValue "String"   , "COMPANY_ICON"      , '"@mipmap/icon_logo"'
+//            resValue "String"   , "COMPANY_NAME"      , '"江西万年青水泥股份有限公司"'
+//            //manifest里面的值
+//            manifestPlaceholders = [
+//                    APP_NAME            : "万年青流向管控",
+//                    APP_ICON            : "@mipmap/icon_logo",
+//                    MTA_CHANNEL_VALUE   : "handtruck6",
+//                    MAP_ID   : "15dd93e75c671a0c0f594c0d0195a2c8",
+//                    FILE_PROVIDER       : "com.hand.handtruck.provider6" ]
+//            versionCode 3
+//            versionName "1.0.4"
+//        }
+//
+//        //你的APP
+//        handtruck3{
+//            applicationId "com.hand.handtruck3"
+////            resValue "string", "app_name", "流向管控"
+//            resValue "String"   , "APP_File_Provider"      , '"com.hand.handtruck.provider3"'
+//            resValue "String"   , "Buly_ID"      , '"3112e7189a"'
+//            resValue "String"   , "Name_type"      , '"handtruck3"'
+//            resValue "String"   , "COMPANY_ICON"      , '"@mipmap/icon_logo"'
+//            resValue "String"   , "COMPANY_NAME"      , '"鱼蜂集团"'
+//            //manifest里面的值
+//            manifestPlaceholders = [
+//                    APP_NAME   : "流向管控",
+//                    APP_ICON            : "@mipmap/icon_logo",
+//                    MTA_CHANNEL_VALUE   : "handtruck3",
+//                    MAP_ID   : "bbd96ce476685eacf413a36e93c7d316",
+//                    FILE_PROVIDER       : "com.hand.handtruck.provider3" ]
+//
+//            versionCode 16
+//            versionName "1.1.5"
+//        }
+//
+//    }
+
+}
+
+dependencies {
+    compile project(':HandLibray')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    compile 'org.litepal.android:core:1.6.0'
+    compile 'com.contrarywind:Android-PickerView:3.2.7'
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+    implementation files('libs/pinyin4j-2.5.0.jar')
+    implementation files('libs/Android_Map3D_SDK_V6.6.0_20181221.jar')
+    implementation files('libs/AMap_Search_V6.5.0_20180930.jar')
+    //号，例如1.2.0
+    compile 'com.tencent.bugly:crashreport_upgrade:1.4.1'
+    implementation files('libs/universal-image-loader-1.9.3.jar')
+    implementation files('libs/jcore-android-2.1.6.jar')
+    implementation files('libs/jpush-android-3.3.8.jar')
+
+    compile 'com.github.czy1121:cornerlabelview:1.0.3'
+//    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+}

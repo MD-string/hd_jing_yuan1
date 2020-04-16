@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../HandLibray/HandLibray.iml" filepath="$PROJECT_DIR$/../HandLibray/HandLibray.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HandTruck.iml" filepath="$PROJECT_DIR$/HandTruck.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../HangProject.iml" filepath="$PROJECT_DIR$/../HangProject.iml" />
+    </modules>
+  </component>
+</project>

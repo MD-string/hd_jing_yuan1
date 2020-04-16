@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.parkingwang:keyboard:0.3.1-ALPHA@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/keyboard-0.3.1-ALPHA.aar/187b8807625f8eba055a217940858ddd/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/keyboard-0.3.1-ALPHA.aar/187b8807625f8eba055a217940858ddd/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parkingwang/keyboard/0.3.1-ALPHA/f6dd9dfe4f515ae8bffbf96a0069afa4f53a85be/keyboard-0.3.1-ALPHA-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

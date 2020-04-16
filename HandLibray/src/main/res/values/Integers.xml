@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--动画的持续时间(单位：毫秒)-->
+    <integer name="slide_animation_duration">300</integer>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sw_height_1">43dp</dimen>
+    <dimen name="sw_height_2">41dp</dimen>
+    <dimen name="sw_height_3">44dp</dimen>
+    <dimen name="sw_height_4">26dp</dimen>
+    <dimen name="sw_height_5">17dp</dimen>
+    
+    <dimen name="height_banner">80dp</dimen>
+    <dimen name="height_orange_image">54dp</dimen>
+    <dimen name="height_subject_banner">180dp</dimen>
+    <dimen name="height_subject_image">91dp</dimen>
+    <dimen name="height_subject_all">120dp</dimen>
+    <dimen name="height_famous_product_item">150dp</dimen>
+    
+    <dimen name="head_w">37dp</dimen>
+    <dimen name="pup_height">275dp</dimen>
+    <dimen name="login_top">38dp</dimen>
+</resources>

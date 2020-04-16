@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--文字(最小)尺寸-->
+    <dimen name="text_12">12sp</dimen>
+    <!--正文字体大小-小-->
+    <dimen name="text_13">13sp</dimen>
+    <!--正文字体大小-小-->
+    <dimen name="text_14">14sp</dimen>
+    <!--正文字体大小16sp-->
+    <dimen name="text_16">16sp</dimen>
+    <!--正文字体大小18sp-->
+    <dimen name="text_18">18sp</dimen>
+    <!--正文字体大小18sp-->
+    <dimen name="text_22">22sp</dimen>
+    <dimen name="textSize">10sp</dimen>
+    <dimen name="hintTextSize">32sp</dimen>
+    <dimen name="chooseTextSize">12sp</dimen>
+    <dimen name="padding">20dp</dimen>
+    <dimen name="radius">20dp</dimen>
+    <dimen name="circleRadius">24dp</dimen>
+
+
+    <!--圆形图片的线宽-->
+    <dimen name="line">1dp</dimen>
+    <!--圆角半径-->
+    <dimen name="corner_4dp">4dp</dimen>
+    <!--圆角半径5px-->
+    <dimen name="corner_5dp">5dp</dimen>
+    <!--条目内容行距-->
+    <dimen name="item_range">9dp</dimen>
+    <!--文字内容到背景或边框的距离-->
+    <dimen name="content_to_board">10dp</dimen>
+    <!--内容到图片间距-->
+    <dimen name="content_imageview_board">11dp</dimen>
+    <!--主体内容左右间距-->
+    <dimen name="content_to_board12">12dp</dimen>
+    <!--文字内容到背景或边框的距离-->
+    <dimen name="content_to_board_big">15dp</dimen>
+    <!--内容间距-->
+    <dimen name="content_board">21dp</dimen>
+    <!--车型图片的宽高22dp-->
+    <dimen name="iv_width_height22">22dp</dimen>
+    <!--图片的宽高-->
+    <dimen name="iv_width_height">24dp</dimen>
+    <!--内容条目高度-->
+    <dimen name="item_height28">28dp</dimen>
+    <!--条目高度-->
+    <dimen name="item_height45">45dp</dimen>
+    <!--栏目高度-->
+    <dimen name="column_height">40dp</dimen>
+    <!--首页条目高度-->
+    <dimen name="home_item_height">67dp</dimen>
+    <!--PopWindow相对指定控件的偏移量-->
+    <dimen name="swipelistView_right">200dp</dimen>
+
+    <dimen name="swipelistView_right_100">100dp</dimen>
+
+    <dimen name="single_line_height">0.5dip</dimen>
+    <dimen name="tiptext_bottom_margin">197.0dip</dimen>
+    <dimen name="default_label_title_size">10sp</dimen>
+    <dimen name="default_label_content_size">12sp</dimen>
+    <dimen name="default_label_top_padding">15dp</dimen>
+    <dimen name="default_label_bottom_padding">10dp</dimen>
+
+</resources>

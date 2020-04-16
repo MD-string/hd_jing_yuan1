@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include
+        android:id="@+id/title_1"
+        layout="@layout/layout_common_title"></include>
+
+
+
+    <com.hand.handtruck.Widget.CustomScrollViewPager
+        android:id="@+id/id_page_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_tab_title"
+        android:layout_below="@id/title_1" >
+    </com.hand.handtruck.Widget.CustomScrollViewPager>
+
+    <include
+        android:id="@+id/ll_tab_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/layout_res_examine" />
+</RelativeLayout>

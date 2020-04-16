@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+       >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="搜索"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="5dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/rl_name"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="40dp">
+                <TextView
+                    android:id="@+id/img_1"
+                    android:layout_width="90dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:text="运输车牌"
+                    android:gravity="center"
+                    android:background="@drawable/shape_bg_half_hui"
+                    android:layout_height="match_parent"/>
+
+                <EditText
+                    android:id="@+id/et_car_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/img_1"
+                    android:hint="车牌号码"
+                    android:inputType="text"
+                    android:paddingLeft="8dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_col"
+                    android:background="@drawable/shape_bg_half_hui_1"
+                    android:textColorHint="@color/txt_content_gray"
+                    android:textSize="15sp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_height="40dp">
+                <TextView
+                    android:id="@+id/tv_2"
+                    android:layout_width="90dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:text="客户名称"
+                    android:gravity="center"
+                    android:background="@drawable/shape_bg_half_hui"
+                    android:layout_height="match_parent"/>
+
+                <EditText
+                    android:id="@+id/et_cust_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/tv_2"
+                    android:hint="客户名称"
+                    android:inputType="text"
+                    android:paddingLeft="8dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_col"
+                    android:background="@drawable/shape_bg_half_hui_1"
+                    android:textColorHint="@color/txt_content_gray"
+                    android:textSize="15sp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="270dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_height="40dp">
+                <TextView
+                    android:id="@+id/tv_3"
+                    android:layout_width="90dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:text="卸货地址"
+                    android:gravity="center"
+                    android:background="@drawable/shape_bg_half_hui"
+                    android:layout_height="match_parent"/>
+
+                <EditText
+                    android:id="@+id/et_offload_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/tv_3"
+                    android:hint="地址"
+                    android:inputType="text"
+                    android:paddingLeft="8dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_col"
+                    android:background="@drawable/shape_bg_half_hui_1"
+                    android:textColorHint="@color/txt_content_gray"
+                    android:textSize="15sp"
+                    />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="270dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:layout_height="40dp">
+                <TextView
+                    android:id="@+id/tv_start_time"
+                    android:layout_width="114dp"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/tv_4"
+                    android:hint="选择开始时间"
+                    android:layout_marginLeft="12dp"
+                    android:inputType="text"
+                    android:paddingLeft="8dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/text_col"
+                    android:background="@drawable/shape_bg_half_hui_2"
+                    android:textColorHint="@color/txt_content_gray"
+                    android:textSize="12sp"
+                    />
+                <TextView
+                    android:id="@+id/tv_4"
+                    android:layout_width="30dp"
+                    android:layout_centerVertical="true"
+                    android:text="至"
+                    android:gravity="center"
+                    android:background="@drawable/shape_bg_half_hui_3"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/tv_end_time"
+                    android:layout_width="114dp"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/tv_4"
+                    android:hint="选择结束时间"
+                    android:inputType="text"
+                    android:gravity="center"
+                    android:paddingLeft="8dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_col"
+                    android:background="@drawable/shape_bg_half_hui_1"
+                    android:textColorHint="@color/txt_content_gray"
+                    android:textSize="12sp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/colorGray"
+
+
+            ></View>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tv_cancle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="取消"
+                android:textSize="22sp"
+                android:background="@drawable/sel_bg_white_gray"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray"
+            ></View>
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textColor="@color/text_col"
+                android:text="搜索"
+                android:textSize="22sp"
+                android:background="@drawable/sel_bg_white_gray"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

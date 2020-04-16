@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_title"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/home_item_height"
+    android:background="@mipmap/icon_top_bg"
+    android:fitsSystemWindows="true"
+    >
+
+    <TextView
+        android:id="@+id/tv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:drawableLeft="@mipmap/title_back"
+        android:gravity="center_vertical"
+        android:text="返回"
+        android:visibility="visible"
+        android:textColor="@color/bg_white"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="bottom"
+        android:text="标题"
+        android:textColor="@color/bg_white"
+        android:textSize="19sp"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/ll_et"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/content_to_board"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_operator"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="4dp"
+            android:gravity="center_vertical"
+            android:text="修改"
+            android:textColor="@color/bg_white"
+            android:textSize="14sp"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/iv_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_order_numb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/light_gray"
+                    android:text="订单编号:"/>
+                <TextView
+                    android:id="@+id/tv_order_number"
+                    android:layout_width="wrap_content"
+                    android:layout_toRightOf="@+id/tv_order_numb"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    android:text="K1542B9760B96B4"/>
+
+                <TextView
+                    android:id="@id/tv_car_number"
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:text="粤BX145Q"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/hd_blue"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/shape_bg_white_ble"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="客户名称:"
+                    android:layout_marginTop="4dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/light_gray"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_cust_name"
+                    android:layout_width="wrap_content"
+                    android:text="都昌.九江腾威工贸有限公司（景湖线改造）"
+                    android:layout_marginTop="4dp"
+                    android:singleLine="true"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/light_gray"
+                        android:text="断电时间:"/>
+                    <TextView
+                        android:id="@+id/tv_close_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:text="2019-10-23 13:09:19"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="地址:"
+                    android:layout_marginTop="4dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/light_gray"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_leave_address"
+                    android:layout_width="wrap_content"
+                    android:text="江西省九江市湖口县双钟镇百变汽车美容中心叶家舍小区"
+                    android:singleLine="true"
+                    android:layout_marginTop="4dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

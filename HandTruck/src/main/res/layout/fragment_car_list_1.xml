@@ -1,0 +1,73 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LinearLayoutBgV"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hand.handtruck.activity.AddTruckActivity">
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:background="@mipmap/icon_top_bg"
+        android:visibility="visible"
+        android:layout_height="@dimen/head_w">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="bottom"
+        android:text="首页"
+        android:paddingBottom="10dp"
+        android:textColor="@color/bg_white"
+        android:textSize="19sp"
+        />
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:drawableLeft="@mipmap/title_back"
+            android:gravity="center_vertical"
+            android:text="返回"
+            android:visibility="visible"
+            android:textColor="@color/bg_white"
+            android:textSize="16sp"
+            />
+
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/rl_search"
+        layout="@layout/car_list_header"></include>
+
+    <com.hand.handtruck.Widget.listview.XListView
+        android:id="@+id/list_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadeScrollbars="true"
+        android:fadingEdge="none"
+        android:dividerHeight="0.5dp"
+        android:layout_below="@+id/rl_search"
+        android:divider="@color/bg_light_gray"
+        android:fastScrollEnabled="false"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="vertical"
+        android:scrollingCache="false"
+        android:transcriptMode="disabled"
+        android:visibility="visible">
+
+    </com.hand.handtruck.Widget.listview.XListView>
+
+    <!--<ExpandableListView-->
+        <!--android:id="@+id/list_1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_below="@+id/rl_search"-->
+        <!--android:layout_height="match_parent">-->
+    <!--</ExpandableListView>-->
+
+</LinearLayout>

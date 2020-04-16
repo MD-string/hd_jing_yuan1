@@ -1,0 +1,106 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/hand_blue</item>
+        <item name="colorPrimaryDark">@color/hand_blue</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="time_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+    <!--线性布局父类背景方向-->
+    <style name="LinearLayoutBgV">
+        <item name="android:background">@color/bg_light_gray</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="paddingLR12">
+        <item name="android:paddingLeft">@dimen/content_to_board12</item>
+        <item name="android:paddingRight">@dimen/content_to_board12</item>
+    </style>
+
+    <style name="paddingRL12dp">
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+    </style>
+
+    <style name="line_h_board12dp">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+
+        <item name="android:background">@color/line_color</item>
+    </style>
+
+    <style name="line_tol12_fill_r">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:background">@color/line_color</item>
+    </style>
+
+    <style name="EditorStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:textColor">@color/txt_content_black</item>
+        <item name="android:textColorHint">@color/line_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="input_text_title">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/txt_content_black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- 菊花 -->
+    <style name="mProgress_circle">
+        <item name="android:indeterminateDrawable">@drawable/progressbar_circle</item>
+        <item name="android:indeterminateDuration">1200</item>
+        <item name="android:minWidth">30dp</item>
+        <item name="android:minHeight">30dp</item>
+        <item name="android:maxWidth">40dp</item>
+        <item name="android:maxHeight">40dp</item>
+    </style>
+
+    <style name="CustomDialog" parent="AppTheme">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="colorAccent">@color/bg_white</item>
+    </style>
+    <style name="LoadDialog" parent="AppTheme">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="colorAccent">@color/bg_white</item>
+    </style>
+
+    <!-- SingleLineStyle Style -->
+    <style name="SingleLineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/single_line_height</item>
+        <item name="android:background">@color/bg_white</item>
+    </style>
+
+    <!-- Main page Tabbutton Style -->
+    <style name="MainTabButtonItemStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:paddingTop">1dip</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+</resources>

@@ -1,0 +1,32 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/LinearLayoutBgV"
+    tools:context=".activity.TruckInfoActivity">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.hand.handtruck.Widget.listview.XListView
+            android:id="@+id/list_leader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="true"
+            android:fadingEdge="none"
+            android:dividerHeight="0.5dp"
+            android:divider="@color/bg_light_gray"
+            android:fastScrollEnabled="false"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="vertical"
+            android:scrollingCache="false"
+            android:transcriptMode="disabled"
+            android:visibility="visible">
+
+        </com.hand.handtruck.Widget.listview.XListView>
+
+    </FrameLayout>
+</LinearLayout>

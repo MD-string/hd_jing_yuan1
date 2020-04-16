@@ -1,0 +1,207 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    style="@style/LinearLayoutBgV"
+    android:id="@+id/ll_all"
+    android:layout_height="match_parent"
+  >
+    <include
+        android:id="@+id/dialog_truckN_input"
+        layout="@layout/dialog_truck_number_input"
+        android:visibility="gone"
+        ></include>
+    <include layout="@layout/layout_common_title_keybord"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_white"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:background="@color/bg_light_gray"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_select_company"
+            style="@style/paddingRL12dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/column_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                style="@style/input_text_title"
+                android:text="@string/company_name"/>
+
+            <TextView
+                android:id="@+id/et_select_company"
+                style="@style/EditorStyle"
+                android:hint="@string/select_company_name"
+                android:layout_weight="1"
+                android:background="@drawable/sel_bg_white_gray"
+                />
+            <ImageView
+                android:id="@+id/iv_company_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/screen_arrow"
+
+                />
+        </LinearLayout>
+
+        <View
+            style="@style/line_tol12_fill_r"></View>
+
+
+        <LinearLayout
+            style="@style/paddingRL12dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/column_height"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/input_text_title"
+                android:text="@string/device_number"
+                />
+
+            <EditText
+                android:id="@+id/et_device_number"
+                style="@style/EditorStyle"
+                android:hint="@string/input_device_number"
+                android:inputType="number"
+                />
+        </LinearLayout>
+
+        <View
+            style="@style/line_tol12_fill_r"></View>
+
+
+        <LinearLayout
+            style="@style/paddingRL12dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/column_height"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/input_text_title"
+                android:text="@string/gps_number"
+                />
+
+            <EditText
+                android:id="@+id/et_gps_number"
+                style="@style/EditorStyle"
+                android:hint="@string/input_gps_number"
+                android:inputType="number"
+                />
+        </LinearLayout>
+
+
+        <View
+            style="@style/line_tol12_fill_r"></View>
+
+        <LinearLayout
+            style="@style/paddingRL12dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/column_height"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/input_text_title"
+                android:text="@string/truck_number"
+                />
+
+            <TextView
+                android:id="@+id/tv_truck_number"
+                style="@style/EditorStyle"
+                android:hint="@string/input_truck_number"
+                />
+        </LinearLayout>
+
+        <View
+            style="@style/line_tol12_fill_r"></View>
+
+
+        <LinearLayout
+            style="@style/paddingRL12dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/column_height"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/input_text_title"
+                android:text="@string/phone"
+                />
+
+            <EditText
+                android:id="@+id/et_phone"
+                style="@style/EditorStyle"
+                android:hint="@string/input_phone"
+                android:inputType="phone"
+                android:maxLength="11"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_tol12_fill_r"></View>
+
+        <LinearLayout
+            style="@style/paddingRL12dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/column_height"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/input_text_title"
+                android:text="@string/load_capacity"/>
+
+            <EditText
+                android:id="@+id/et_load_capacity"
+                style="@style/EditorStyle"
+                android:hint="@string/input_load_capacity"
+                android:inputType="number"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_tol12_fill_r"></View>
+
+        <LinearLayout
+            style="@style/paddingRL12dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/column_height"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/input_text_title"
+                android:text="@string/production_time"/>
+
+            <TextView
+                android:id="@+id/et_production_time"
+                style="@style/EditorStyle"
+                android:hint="@string/input_production_time"
+                android:drawableRight="@mipmap/screen_arrow"
+                android:background="@drawable/sel_bg_white_gray"
+                />
+        </LinearLayout>
+
+        <View
+            style="@style/line_tol12_fill_r"></View>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_add_truck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/btn_round_corner"
+        android:text="添加"
+        android:textColor="@color/bg_white"
+        android:textSize="16sp"
+
+        />
+
+</LinearLayout>

@@ -1,0 +1,202 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/bg_white"
+              android:orientation="vertical"
+              android:visibility="visible" >
+
+    <RelativeLayout
+        android:id="@+id/id_switch_tab_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="2.6dp" >
+
+            <LinearLayout
+                android:id="@+id/ll_tab_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                android:visibility="gone" >
+                <ImageView
+                    android:layout_width="28dp"
+                    android:src="@mipmap/order_check_evidence"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="调研取证"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_blue"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_1"
+                    android:layout_width="wrap_content"
+                    android:text="(9999)"
+                    android:textSize="11sp"
+                    android:visibility="gone"
+                    android:textColor="@color/gh_blue"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="35dp"
+                    android:src="@mipmap/order_check_market"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:id="@+id/tv_tab_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="销售部"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_blue"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_2"
+                    android:layout_width="wrap_content"
+                    android:text="(9999)"
+                    android:visibility="gone"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="37dp"
+                    android:src="@mipmap/order_check_leader"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:id="@+id/tv_tab_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="分管领导"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_3"
+                    android:layout_width="wrap_content"
+                    android:text="(9999)"
+                    android:visibility="gone"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="gone"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="35dp"
+                    android:src="@mipmap/order_check_manager"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="总经理"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_4"
+                    android:layout_width="wrap_content"
+                    android:text="(9999)"
+                    android:visibility="gone"
+                    android:textSize="11sp"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_tab_5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@mipmap/order_check_summary"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:id="@+id/tv_tab_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="审核汇总"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/gh_black"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_number_5"
+                    android:layout_width="wrap_content"
+                    android:text="(9999)"
+                    android:textSize="11sp"
+                    android:visibility="gone"
+                    android:textColor="@color/gh_shen_gray"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/id_tab_line_iv"
+        android:layout_width="80dp"
+        android:layout_height="2dp"
+        android:visibility="gone"
+        android:layout_marginLeft="15dp"
+        android:background="@color/hand_blue" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:visibility="gone"
+        android:background="#38999999" />
+
+</LinearLayout>
