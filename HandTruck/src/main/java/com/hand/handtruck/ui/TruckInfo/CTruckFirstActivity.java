@@ -79,6 +79,7 @@ public class CTruckFirstActivity extends Activity implements View.OnClickListene
                 if(id.equals(parentId)){
                     CompanyInfo cin=new CompanyInfo();
                     cin.setId(info.getId());
+                    cin.setCompanyName(mCinfo.getName()+"");
                     cin.setParent(parentId);
                     cin.setName(info.getText());
                     cin.setIcon(icon);

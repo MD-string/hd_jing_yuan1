@@ -110,7 +110,7 @@ public class CompanyTruckAdapter2 extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
+    public View getChildView(final int i, int i1, boolean b, View view, ViewGroup viewGroup) {
         ChildHolder holder;
         if (view == null) {
             holder = new ChildHolder();
@@ -149,6 +149,7 @@ public class CompanyTruckAdapter2 extends BaseExpandableListAdapter {
                 }
                 cb.setCarNumber(cb.getText()+"");
                 cb.setDeviceId(cb.getId()+"");
+                cb.setParentName(mList.get(i).getName()+"");
                 Bundle bundle=new Bundle();
                 bundle.putSerializable("truckModel",(Serializable)cb);
                 bundle.putString("sign",str);

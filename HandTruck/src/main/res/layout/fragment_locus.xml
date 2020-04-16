@@ -400,7 +400,7 @@
             android:singleLine="true"
             android:textColor="@color/white"
             android:layout_centerVertical="true"
-            android:text="xxxxxxx公司的点点滴滴多多多多多的点点滴滴多多多多多多多多多多多多多多多多多多"/>
+            />
 
         <TextView
             android:id="@+id/tv_order_carnuber"

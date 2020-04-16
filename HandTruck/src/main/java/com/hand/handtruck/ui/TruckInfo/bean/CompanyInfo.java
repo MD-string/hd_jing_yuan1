@@ -16,7 +16,16 @@ public class CompanyInfo implements Serializable {
     private int  onLineNumber;//在线数量
     private String tag;
     private String companyCode;
+    private String companyName;
 
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
 
     public int getOnLineNumber() {
         return onLineNumber;

@@ -144,7 +144,7 @@ public class CompanyFirstAdapter extends BaseExpandableListAdapter {
                     CarInfo car=new CarInfo();
                     car.setCarNumber(cinf.getName()+"");
                     car.setDeviceId(cinf.getId()+"");
-                    car.setParentName(cinf.getName()+"");
+                    car.setParentName(cinf.getCompanyName()+"");
                     Bundle bundle=new Bundle();
                     bundle.putSerializable("truckModel",(Serializable)car);
                     bundle.putString("sign",str);
