@@ -438,7 +438,7 @@
                 <ImageView
                     android:id="@+id/img_line_weight"
                     android:layout_width="wrap_content"
-                    android:src="@mipmap/line_weight"
+                    android:src="@mipmap/line_speed"
                     android:visibility="gone"
                     android:layout_gravity="center_vertical"
                     android:layout_height="wrap_content"/>
@@ -447,7 +447,7 @@
                     android:id="@+id/tv_lien_weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@mipmap/line_weight"
+                    android:drawableLeft="@mipmap/line_speed"
                     android:textColor="@color/color4"
                     android:text="重量"/>
             </LinearLayout>
@@ -470,7 +470,7 @@
                     android:id="@+id/tv_line_speed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@mipmap/line_speed"
+                    android:drawableLeft="@mipmap/line_weight"
                     android:textColor="@color/color4"
                     android:text="速度"/>
             </LinearLayout>
