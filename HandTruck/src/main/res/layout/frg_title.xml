@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:gravity="center"
-                    android:text="订单轨迹"
+                    android:text="车辆轨迹"
                     android:textColor="@color/light_gray"
                     android:textSize="18sp"/>
             </LinearLayout>
