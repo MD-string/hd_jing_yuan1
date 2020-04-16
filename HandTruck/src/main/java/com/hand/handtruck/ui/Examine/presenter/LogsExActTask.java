@@ -1,12 +1,10 @@
 package com.hand.handtruck.ui.Examine.presenter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Handler;
 import android.text.TextUtils;
 
 import com.hand.handlibray.util.ToastUtil;
-import com.hand.handtruck.activity.LoginActivity;
 import com.hand.handtruck.constant.Constants;
 import com.hand.handtruck.constant.ConstantsCode;
 import com.hand.handtruck.utils.CommonUtils;
@@ -79,7 +77,6 @@ public class LogsExActTask {
                             }
                         }
                     } catch (Exception e) {
-                        doLoginAgain(mMessage);//重新登录
                         e.printStackTrace();
                     }
 
@@ -94,10 +91,4 @@ public class LogsExActTask {
 
 
 
-    public void doLoginAgain(String message){
-        if(message.contains("重新登录")){
-            Intent i=new Intent(mContext, LoginActivity.class);
-            mContext.startActivity(i);
-        }
-    }
 }
