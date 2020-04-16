@@ -9,6 +9,7 @@ import com.hand.handlibray.util.ToastUtil;
 import com.hand.handtruck.activity.LoginActivity;
 import com.hand.handtruck.constant.Constants;
 import com.hand.handtruck.constant.ConstantsCode;
+import com.hand.handtruck.utils.CommonUtils;
 import com.hand.handtruck.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -71,7 +72,11 @@ public class LogsExActTask {
 //                            String result = jsonObject1.getString("result");
                                 mHandler.sendMessage(mHandler.obtainMessage(ConstantsCode.MSG_REQUEST_SUCCESS, msg));
                         }else{
-                            doLoginAgain(mMessage);//重新登录
+                            if("500".equals(code)){
+                                CommonUtils.reStartLoginAgain(mContext);//重新登录
+                            }else {
+                                mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_FAIL);
+                            }
                         }
                     } catch (Exception e) {
                         doLoginAgain(mMessage);//重新登录

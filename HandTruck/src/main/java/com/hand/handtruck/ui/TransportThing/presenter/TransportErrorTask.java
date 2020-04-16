@@ -1,18 +1,17 @@
 package com.hand.handtruck.ui.TransportThing.presenter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Handler;
 import android.text.TextUtils;
 
 import com.hand.handlibray.util.CommonKitUtil;
 import com.hand.handlibray.util.ToastUtil;
-import com.hand.handtruck.activity.LoginActivity;
 import com.hand.handtruck.bean.PagerBean;
 import com.hand.handtruck.constant.Constants;
 import com.hand.handtruck.constant.ConstantsCode;
 import com.hand.handtruck.ui.TransportThing.bean.TransportBean;
 import com.hand.handtruck.ui.form.bean.FormBean;
+import com.hand.handtruck.utils.CommonUtils;
 import com.hand.handtruck.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -81,13 +80,13 @@ public class TransportErrorTask {
                             } else {
                                 //                        mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_EMPTY);
                             }
-                        }else{
-                            doLoginAgain(mMessage);//重新登录
+                        }else if("500".equals(code)){
+                            CommonUtils.reStartLoginAgain(mContext);//重新登录
+                        }else {
                             mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_FAIL);
                         }
 
                     } catch (Exception e) {
-                        doLoginAgain(mMessage);//重新登录
                         e.printStackTrace();
                     }
 
@@ -136,13 +135,13 @@ public class TransportErrorTask {
                             } else {
                                 mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_EMPTY);
                             }
-                        }else{
-                            doLoginAgain(mMessage);//重新登录
+                        }else if("500".equals(code)){
+                            CommonUtils.reStartLoginAgain(mContext);//重新登录
+                        }else {
                             mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_FAIL1);
                         }
 
                     } catch (Exception e) {
-                        doLoginAgain(mMessage);//重新登录
                         e.printStackTrace();
                     }
 
@@ -191,13 +190,13 @@ public class TransportErrorTask {
                             } else {
                                 mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_EMPTY);
                             }
-                        }else{
-                            doLoginAgain(mMessage);//重新登录
+                        }else if("500".equals(code)){
+                            CommonUtils.reStartLoginAgain(mContext);//重新登录
+                        }else {
                             mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_FAIL1);
                         }
 
                     } catch (Exception e) {
-                        doLoginAgain(mMessage);//重新登录
                         e.printStackTrace();
                     }
 
@@ -246,14 +245,14 @@ public class TransportErrorTask {
                             } else {
                                 mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_EMPTY);
                             }
-                        }else{
-                            doLoginAgain(mMessage);//重新登录
+                        }else if("500".equals(code)){
+                            CommonUtils.reStartLoginAgain(mContext);//重新登录
+                        }else {
                             mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_FAIL2);
                         }
 
 
                     } catch (Exception e) {
-                        doLoginAgain(mMessage);//重新登录
                         e.printStackTrace();
                     }
                 } else {
@@ -294,13 +293,13 @@ public class TransportErrorTask {
                             } else {
                                 //                        mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_EMPTY);
                             }
-                        }else{
-                            doLoginAgain(mMessage);//重新登录
+                        }else if("500".equals(code)){
+                            CommonUtils.reStartLoginAgain(mContext);//重新登录
+                        }else {
                             mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_FAIL3);
                         }
 
                     } catch (Exception e) {
-                        doLoginAgain(mMessage);//重新登录
                         e.printStackTrace();
                     }
 
@@ -312,10 +311,5 @@ public class TransportErrorTask {
         });
 
     }
-    public void doLoginAgain(String message){
-        if(message.contains("重新登录")){
-            Intent i=new Intent(mContext, LoginActivity.class);
-            mContext.startActivity(i);
-        }
-    }
+
 }

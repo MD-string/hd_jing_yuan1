@@ -9,6 +9,7 @@ import com.hand.handtruck.activity.LoginActivity;
 import com.hand.handtruck.constant.Constants;
 import com.hand.handtruck.ui.TruckInfo.ICarListView;
 import com.hand.handtruck.ui.TruckInfo.bean.CarInfo;
+import com.hand.handtruck.utils.CommonUtils;
 import com.hand.handtruck.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -59,9 +60,10 @@ public class CarListTask {
                             String data = jsonObject.getString("data");
                             List<CarInfo> calist = jsonStringConvertToList(data, CarInfo[].class);
                             mView.doSuccess(calist);
-                        }else{
+                        }else if("500".equals(code)){
+                            CommonUtils.reStartLoginAgain(mContext);//重新登录
+                        }else {
                             mView.doError(msg);
-                            doLoginAgain(msg);//重新登录
                         }
 
                     } catch (Exception e) {

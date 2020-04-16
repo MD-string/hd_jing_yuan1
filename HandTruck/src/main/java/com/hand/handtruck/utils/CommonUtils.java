@@ -18,6 +18,8 @@ import android.view.View.OnTouchListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
+import com.hand.handtruck.activity.LoginActivity;
+import com.hand.handtruck.application.MyApplication;
 import com.hand.handtruck.log.DLog;
 
 import java.math.BigDecimal;
@@ -431,5 +433,13 @@ public class CommonUtils {
 		return mUrlTimestamp;
 	}
 
+
+	public static void reStartLoginAgain(Context context){
+			ToastUtil.getInstance().showCenterMessage(MyApplication.context, "登录凭证无效,请重新登录");
+
+			Intent i=new Intent(context, LoginActivity.class);
+			context.startActivity(i);
+
+	}
 
 }

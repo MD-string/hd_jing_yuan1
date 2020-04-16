@@ -1,15 +1,14 @@
 package com.hand.handtruck.ui.form.presenter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Handler;
 import android.text.TextUtils;
 
 import com.hand.handlibray.util.CommonKitUtil;
-import com.hand.handtruck.activity.LoginActivity;
 import com.hand.handtruck.constant.Constants;
 import com.hand.handtruck.constant.ConstantsCode;
 import com.hand.handtruck.ui.form.bean.WeiBean;
+import com.hand.handtruck.utils.CommonUtils;
 import com.hand.handtruck.utils.LogUtil;
 import com.hand.handtruck.utils.Tools;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -108,12 +107,12 @@ public class OrderInfoTask {
                                     mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_EMPTY);
                                 }
                             }
-                        }else{
-                            doLoginAgain(mMessage);//重新登录
+                        }else if("500".equals(code)){
+                            CommonUtils.reStartLoginAgain(mContext);//重新登录
+                        }else {
                             mHandler.sendEmptyMessage(ConstantsCode.MSG_REQUEST_FAIL);
                         }
                     } catch (Exception e) {
-                        doLoginAgain(mMessage);//重新登录
                         e.printStackTrace();
                     }
 
@@ -125,10 +124,5 @@ public class OrderInfoTask {
         });
 
     }
-    public void doLoginAgain(String message){
-        if(message.contains("重新登录")){
-            Intent i=new Intent(mContext, LoginActivity.class);
-            mContext.startActivity(i);
-        }
-    }
+
 }
