@@ -439,7 +439,7 @@ public class CommonUtils {
 
 			Intent i=new Intent(context, LoginActivity.class);
 			context.startActivity(i);
-
+			((Activity)context).finish();
 	}
 
 }

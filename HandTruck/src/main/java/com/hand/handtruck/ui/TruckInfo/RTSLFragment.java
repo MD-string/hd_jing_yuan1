@@ -218,8 +218,8 @@ public class RTSLFragment extends BaseFragment implements View.OnClickListener {
 		View view = inflater.inflate(R.layout.activity_rstl_location, container, false);
 		mContext=getActivity();
 		findViews(view);
-		inIt(savedInstanceState);
 		setListeners();
+		inIt(savedInstanceState);
 
 
 		return view;
@@ -274,7 +274,7 @@ public class RTSLFragment extends BaseFragment implements View.OnClickListener {
 	private void initRoot(View view) {
 		ll_root=(RelativeLayout)view.findViewById(R.id.ll_root);
 		rl_rooter=(RelativeLayout)view.findViewById(R.id.rl_rooter);
-		ll_root.setVisibility(View.VISIBLE);
+		rl_rooter.setVisibility(View.GONE);
 		chart = (LineChart)view.findViewById(R.id.chart);
 		chart.setVisibility(View.GONE);
 		ll_root.setOnClickListener(new View.OnClickListener() {
@@ -383,6 +383,9 @@ public class RTSLFragment extends BaseFragment implements View.OnClickListener {
 		}, "2010-01-01 00:00", now); // 初始化日期格式请用：yyyy-MM-dd HH:mm，否则不能正常运行
 		customDatePickerE.showSpecificTime(true); // 显示时和分
 		customDatePickerE.setIsLoop(true); // 允许循环滚动
+
+
+		mBtnQuery.performClick();
 
 	}
 
@@ -1028,8 +1031,8 @@ public class RTSLFragment extends BaseFragment implements View.OnClickListener {
 			@Override
 			public void run() {
 				showResult(gpsDataList);  //重量曲线
-				rl_rooter.setVisibility(View.VISIBLE);
-				isRootShow=true;
+//				rl_rooter.setVisibility(View.VISIBLE);
+//				isRootShow=true;
 				closeProgressDialog();
 			}
 		},1500);

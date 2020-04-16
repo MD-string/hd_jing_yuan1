@@ -154,7 +154,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         img_eye = (ImageView) findViewById(R.id.img_eye);
         img_eye.setImageDrawable(context.getResources().getDrawable(R.mipmap.icon_close_eye));
-        isEyeOpen = false;
+        isEyeOpen = (boolean) SPUtil.get(this, "isShow", false);
+        if(isEyeOpen){
+            img_eye.setImageDrawable(context.getResources().getDrawable(R.mipmap.icon_open_eye));
+            mEtLoginPassword.setInputType(128);//设置为显示密码
+        }else{
+            img_eye.setImageDrawable(context.getResources().getDrawable(R.mipmap.icon_close_eye));
+            mEtLoginPassword.setInputType(129);//设置为隐藏密码
+        }
         img_eye.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,10 +169,19 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     isEyeOpen = true;
                     img_eye.setImageDrawable(context.getResources().getDrawable(R.mipmap.icon_open_eye));
                     mEtLoginPassword.setInputType(128);//设置为显示密码
+
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("isShow", isEyeOpen);
+                    editor.commit();
+
                 } else {
                     isEyeOpen = false;
                     img_eye.setImageDrawable(context.getResources().getDrawable(R.mipmap.icon_close_eye));
                     mEtLoginPassword.setInputType(129);//设置为隐藏密码
+
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("isShow", isEyeOpen);
+                    editor.commit();
                 }
             }
         });
