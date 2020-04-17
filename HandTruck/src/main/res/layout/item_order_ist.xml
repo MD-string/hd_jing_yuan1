@@ -68,15 +68,17 @@
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
                         android:textColor="@color/light_gray"
-                        android:text="集团名称:"/>
+                        android:text="集团:"/>
+
                     <TextView
                         android:id="@+id/tv_ji_tuan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
+                        android:maxWidth="104dp"
                         android:singleLine="true"
+                        android:text="河源市金杰环保建材有限公司"
                         android:textColor="@color/light_gray"
-                        android:text="深圳市汉德网络有限科技公司"/>
+                        android:textSize="12sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -88,14 +90,14 @@
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
                         android:textColor="@color/light_gray"
-                        android:text="订单号:"/>
+                        android:text="单号:"/>
                     <TextView
                         android:id="@+id/tv_order_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
                         android:textColor="@color/light_gray"
-                        android:text="2135540"/>
+                        android:text="1001A31000000000YSEL"/>
                 </LinearLayout>
 
 
