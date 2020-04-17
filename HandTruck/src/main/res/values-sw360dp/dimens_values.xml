@@ -9,7 +9,7 @@
     <dimen name="height_banner">90dp</dimen>
     <dimen name="height_orange_image">62dp</dimen>
     <dimen name="height_subject_banner">202.5dp</dimen>
-    <dimen name="height_subject_image">102dp</dimen>
+    <dimen name="height_subject_image">104dp</dimen>
     <dimen name="height_subject_all">135dp</dimen>
     <dimen name="height_famous_product_item">170dp</dimen>
     <dimen name="head_w">42dp</dimen>

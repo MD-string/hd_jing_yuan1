@@ -74,7 +74,7 @@
                         android:id="@+id/tv_ji_tuan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxWidth="104dp"
+                        android:maxWidth="@dimen/height_subject_image"
                         android:singleLine="true"
                         android:text="河源市金杰环保建材有限公司"
                         android:textColor="@color/light_gray"

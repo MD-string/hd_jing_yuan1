@@ -72,7 +72,7 @@
                             android:id="@+id/tv_ji_tuan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:maxWidth="104dp"
+                            android:maxWidth="@dimen/height_subject_image"
                             android:textSize="12sp"
                             android:singleLine="true"
                             android:textColor="@color/light_gray"

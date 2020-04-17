@@ -76,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:maxWidth="104dp"
+                        android:maxWidth="@dimen/height_subject_image"
                         android:singleLine="true"
                         android:textColor="@color/light_gray"
                         android:text="深圳市汉德网络有限科技公司"/>
