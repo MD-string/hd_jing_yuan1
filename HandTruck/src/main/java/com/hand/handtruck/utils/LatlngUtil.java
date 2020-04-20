@@ -1,6 +1,7 @@
 package com.hand.handtruck.utils;
 
 import com.amap.api.maps.model.LatLng;
+import com.hand.handtruck.bean.GPS;
 
 import java.util.List;
 
@@ -96,5 +97,51 @@ public class LatlngUtil {
 		}
 		else
 		{return true;}
+	}
+
+
+	public static double  dohandlerDistance(LatLng car,LatLng me){
+
+		GPS map=GPSConverterUtils.gcj02_To_Bd09(me.latitude,me.longitude);
+		double mlon=map.getLon();
+		double mlat=map.getLat();
+		double str=distance(car.longitude,car.latitude,mlon,mlat);
+		return str;
+	}
+
+
+	/**
+	 * 经纬度转化成弧度
+	 * @param d  经度/纬度
+	 * @return  经纬度转化成的弧度
+	 */
+	private static double radian(double d) {
+		return d * Math.PI / 180.0;
+	}
+
+	/**
+	 * 返回两个地理坐标之间的距离
+	 * @param firsLongitude 第一个坐标的经度
+	 * @param firstLatitude 第一个坐标的纬度
+	 * @param secondLongitude 第二个坐标的经度
+	 * @param secondLatitude  第二个坐标的纬度
+	 * @return 两个坐标之间的距离，单位：公里/千米
+	 */
+	public static double distance(double firsLongitude,double firstLatitude,double secondLongitude,double secondLatitude)
+	{
+		double firstRadianLongitude = radian(firsLongitude);
+		double firstRadianLatitude = radian(firstLatitude);
+		double secondRadianLongitude = radian(secondLongitude);
+		double secondRadianLatitude = radian(secondLatitude);
+
+		double a = firstRadianLatitude - secondRadianLatitude;
+		double b = firstRadianLongitude - secondRadianLongitude;
+		double cal = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2)
+				+ Math.cos(firstRadianLatitude) * Math.cos(secondRadianLatitude)
+				* Math.pow(Math.sin(b / 2), 2)));
+		cal = cal * EARTH_RADIUS;
+
+		return Math.round(cal * 10000d) / 10000d;
+
 	}
 }

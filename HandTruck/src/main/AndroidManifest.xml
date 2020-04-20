@@ -332,7 +332,8 @@
         <!-- 高德地图 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="ac3caaee691ada6ca34e3391e7437ecf"/>
+            android:value="ac3caaee691ada6ca34e3391e7437ecf"
+            />
 
     </application>
 

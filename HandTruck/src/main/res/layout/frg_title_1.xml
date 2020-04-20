@@ -126,7 +126,6 @@
                             android:id="@+id/tv_message_1"
                             android:layout_width="14dp"
                             android:layout_centerHorizontal="true"
-                            android:text="2"
                             android:textSize="7sp"
                             android:gravity="center"
                             android:textColor="@color/white"

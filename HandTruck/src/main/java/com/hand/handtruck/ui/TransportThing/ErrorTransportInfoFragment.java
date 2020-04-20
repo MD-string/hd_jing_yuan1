@@ -132,8 +132,7 @@ public class ErrorTransportInfoFragment extends BaseFragment implements OnClickL
 		mapParams.put("token", token);
 		mapParams.put("nowPage","1");
 		mapParams.put("pageSize","10");
-		mapParams.put("status","-1");
-
+		mapParams.put("type","5");
 		if(0 == first){
 			tranTask.getTransportList(mapParams);
 		}else{
@@ -175,8 +174,7 @@ public class ErrorTransportInfoFragment extends BaseFragment implements OnClickL
 				mapParams.put("token", token);
 				mapParams.put("nowPage",String.valueOf(currentPage+1));
 				mapParams.put("pageSize","10");
-				mapParams.put("status","-1");
-
+				mapParams.put("type","5");
 				tranTask.loadMoreData(mapParams);
 				onLoad();
 			}
@@ -493,7 +491,7 @@ public class ErrorTransportInfoFragment extends BaseFragment implements OnClickL
 					hap.put("token", token);
 					hap.put("nowPage", "1");
 					hap.put("pageSize", "50");
-					hap.put("status","-1");
+					hap.put("type","5");
 					hap.put("startTime", sbean.getStartTime());
 					hap.put("endTime", sbean.getEndTime());
 					hap.put("custName", sbean.getCustName());
@@ -522,7 +520,7 @@ public class ErrorTransportInfoFragment extends BaseFragment implements OnClickL
 							mapParams.put("token", token);
 							mapParams.put("nowPage","1");
 							mapParams.put("pageSize","10");
-							mapParams.put("status","-1");
+							mapParams.put("type","5");
 							tranTask.dopullListData(mapParams);
 
 							onLoad();

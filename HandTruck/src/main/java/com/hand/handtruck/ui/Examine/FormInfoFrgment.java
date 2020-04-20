@@ -143,6 +143,7 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
     private  final ArrayList<Circle> cicleList=new ArrayList<>();
     private   List<WeiBean> wBean;
     private ArrayList<LatLng> mlis;
+    private String isCicre="0";
     private String idHaveCity="0";
     private    List<LatLng> llis=new ArrayList<>();
 
@@ -241,7 +242,7 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                     int size =glist.size();
 
                     for (int i = 0; i < size ; i++) {
-                        if("1".equals(idHaveCity)){
+                        if("1".equals(isCicre)){
                             //判断点是否在围栏内
                             Double lat1=Double.parseDouble(glist.get(i).getY());
                             Double lat2=Double.parseDouble(glist.get(i).getX());
@@ -274,18 +275,37 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                                 //获取重量
                                 areaValues.add(new Entry(i, 5000f));
                             }else{
-                                //获取重量
-                                areaValues.add(new Entry(i, 0f));
+                                if("2".equals(idHaveCity)){
+                                    //判断点是否在围栏内
+                                    Double lat10=Double.parseDouble(glist.get(i).getY());
+                                    Double lat20=Double.parseDouble(glist.get(i).getX());
+                                    LatLng lat0=new LatLng(lat10,lat20);
+                                    boolean isIN=PtInPolygon(lat0,llis);
+                                    if(isIN){
+                                        //获取重量
+                                        areaValues.add(new Entry(i, 5000f));
+                                    }else{
+                                        //获取重量
+                                        areaValues.add(new Entry(i, 0f));
+                                    }
+
+                                }
                             }
-                        }else if("2".equals(idHaveCity)){
-                            //判断点是否在围栏内
-                            Double lat1=Double.parseDouble(glist.get(i).getY());
-                            Double lat2=Double.parseDouble(glist.get(i).getX());
-                            LatLng lat=new LatLng(lat1,lat2);
-                            boolean isIN=PtInPolygon(lat,llis);
-                            if(isIN){
-                                //获取重量
-                                areaValues.add(new Entry(i, 5000f));
+                        }else{
+                            if("2".equals(idHaveCity)){
+                                //判断点是否在围栏内
+                                Double lat10=Double.parseDouble(glist.get(i).getY());
+                                Double lat20=Double.parseDouble(glist.get(i).getX());
+                                LatLng lat0=new LatLng(lat10,lat20);
+                                boolean isIN=PtInPolygon(lat0,llis);
+                                if(isIN){
+                                    //获取重量
+                                    areaValues.add(new Entry(i, 5000f));
+                                }else{
+                                    //获取重量
+                                    areaValues.add(new Entry(i, 0f));
+                                }
+
                             }else{
                                 //获取重量
                                 areaValues.add(new Entry(i, 0f));
@@ -314,16 +334,16 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                     }
 
                     DecimalFormat df = new DecimalFormat("0.00");//
-                    float  maxWei= Collections.max(weilist);//取最大值
-                    maxWei= Float.parseFloat(df.format(Math.ceil(maxWei)));//向上取整
-                    if(maxWei <50){
-                        maxWei=50f;
-                    }
+                    float  maxWei1= Collections.max(weilist);//取最大值
+                    maxWei1= Float.parseFloat(df.format(Math.ceil(maxWei1)));//向上取整
+                    int  weiYU1=(int)(maxWei1/5);
+                    maxWei1=5*(weiYU1+1);
+
                     if(areaValues !=null && areaValues.size() >0){
                         for(int k=0 ;k<areaValues.size();k++){
                             float y=  areaValues.get(k).getY();
                             if(y==5000f){
-                                areaValues.get(k).setY(maxWei);
+                                areaValues.get(k).setY(maxWei1);
                             }
                         }
 
@@ -583,12 +603,17 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                     if(cicleList !=null && cicleList.size() >0){
                         cicleList.clear();
                     }
+
+                    if(llis !=null && llis.size() >0){
+                        llis.clear();
+                    }
                     if(list !=null && list.size() >0) {
                         for (int j = 0; j < list.size(); j++) {
                             WeiBean bean = list.get(j);
                             String type=bean.getType();//1.行政区域，2 多边形
                             String tag=bean.getTag();//1，区域围栏 2 经销商围栏
                             if("1".equals(type)){
+                                DLog.e("FormInfoFrgment","doHaveLat/1="+type);
                                 String lat=bean.getLat();
                                 String lon=bean.getLng();
                                 String  r=bean.getR();
@@ -607,26 +632,26 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                                         myCircle.setFillColor(Color.argb(102, 129, 247, 81));
                                     }
                                     cicleList.add(myCircle);
-                                    idHaveCity="1";
+                                    isCicre="1";
                                 }
                             }else if("3".equals(type)){
-                                if(llis !=null && llis.size() >0){
-                                    llis.clear();
-                                }
+
                                 String data=bean.getRailData();
                                 List<WeiLan> wllis  =jsonToBeanList(data,WeiLan.class);
+                                List<LatLng>  list3=new ArrayList<>();
                                 for (int i = 0; i < wllis.size(); i++) {
                                     WeiLan point = wllis.get(i);
                                     Double lat1 = Double.parseDouble(point.getLat());
                                     Double lat2 = Double.parseDouble(point.getLng());
                                     LatLng lat = new LatLng(lat1, lat2);
+                                    list3.add(lat);
                                     llis.add(lat);
                                 }
                                 // 声明 多边形参数对象
                                 PolygonOptions polygonOptions = new PolygonOptions();
                                 // 添加 多边形的每个顶点（顺序添加）
-                                for (int t = 0; t < llis.size(); t++) {
-                                    LatLng latp = llis.get(t);
+                                for (int t = 0; t < list3.size(); t++) {
+                                    LatLng latp = list3.get(t);
                                     polygonOptions.add(latp);
                                 }
                                 polygonOptions.strokeWidth(4) // 多边形的边框 深绿色:#98ED84
@@ -641,10 +666,7 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                             }else{
                                 try{
 
-                                    if(llis !=null && llis.size() >0){
-                                        llis.clear();
-                                    }
-                                    DLog.e("FormInfoActivity","doHaveLat/2="+type);
+                                    DLog.e("FormInfoFrgment","doHaveLat/2="+type);
                                     String data=bean.getRailData();//可能出现多个多边形
                                     try{
 
@@ -656,19 +678,21 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                                             String string = jsonArray.getString(k);
 
                                             List<WeiLan> wllis  =jsonToBeanList(string,WeiLan.class);
-                                            DLog.e("FormInfoActivity","doHaveLat/wllis="+wllis.size());
+                                            DLog.e("FormInfoFrgment","doHaveLat/wllis="+wllis.size());
+                                            List<LatLng>  list31=new ArrayList<>();
                                             for (int i = 0; i < wllis.size(); i++) {
                                                 WeiLan point = wllis.get(i);
                                                 Double lat1 = Double.parseDouble(point.getLat());
                                                 Double lat2 = Double.parseDouble(point.getLng());
                                                 LatLng lat = new LatLng(lat1, lat2);
                                                 llis.add(lat);
+                                                list31.add(lat);
                                             }
                                             // 声明 多边形参数对象
                                             PolygonOptions polygonOptions = new PolygonOptions();
                                             // 添加 多边形的每个顶点（顺序添加）
-                                            for (int t = 0; t < llis.size(); t++) {
-                                                LatLng latp = llis.get(t);
+                                            for (int t = 0; t < list31.size(); t++) {
+                                                LatLng latp = list31.get(t);
                                                 polygonOptions.add(latp);
                                             }
                                             polygonOptions.strokeWidth(4) // 多边形的边框 深绿色:#98ED84
@@ -682,18 +706,20 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                                         }
                                     }catch (IllegalStateException e){
                                         List<WeiLan> wllis  =jsonToBeanList(data,WeiLan.class);
+                                        List<LatLng>  list32=new ArrayList<>();
                                         for (int i = 0; i < wllis.size(); i++) {
                                             WeiLan point = wllis.get(i);
                                             Double lat1 = Double.parseDouble(point.getLat());
                                             Double lat2 = Double.parseDouble(point.getLng());
                                             LatLng lat = new LatLng(lat1, lat2);
                                             llis.add(lat);
+                                            list32.add(lat);
                                         }
                                         // 声明 多边形参数对象
                                         PolygonOptions polygonOptions = new PolygonOptions();
                                         // 添加 多边形的每个顶点（顺序添加）
-                                        for (int t = 0; t < llis.size(); t++) {
-                                            LatLng latp = llis.get(t);
+                                        for (int t = 0; t < list32.size(); t++) {
+                                            LatLng latp = list32.get(t);
                                             polygonOptions.add(latp);
                                         }
                                         polygonOptions.strokeWidth(4) // 多边形的边框 深绿色:#98ED84
@@ -716,6 +742,7 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                         }
                     }else {
                         idHaveCity="0";
+                        isCicre="0";
                     }
                 }
             }).start();
@@ -855,9 +882,9 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                         maxWei= Float.parseFloat(df.format(Math.ceil(maxWei)));//向上取整
                         int  weiYU=(int)(maxWei/5);
                         maxWei=5*(weiYU+1);
-//                        if(maxWei <50){
-//                            maxWei=50f;
-//                        }
+                        //                        if(maxWei <50){
+                        //                            maxWei=50f;
+                        //                        }
                         DLog.e("FormInfoFrgment","showResult"+maxWei);
                         float midWei=maxWei/10f; //平均值
                         midWei=Float.parseFloat(df.format(midWei));
@@ -871,9 +898,9 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                         int  speedYU=(int)(speedMax/5);
                         speedMax=5*(speedYU+1);
                         DLog.e("FormInfoFrgment","showResult"+speedMax);
-//                        if(speedMax <120){
-//                            speedMax=120;
-//                        }
+                        //                        if(speedMax <120){
+                        //                            speedMax=120;
+                        //                        }
 
                         Description description = new Description();
                         description.setText("");
@@ -949,47 +976,49 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                         });
 
                         if(!isW){
+                            addLineTWO(dataSets,areaValues,true,getResources().getColor(R.color.hd_jian_red1));
                             addLineOne(dataSets,wegValues,false,getResources().getColor(R.color.hd_red));
 
                             leftAxis.setEnabled(true);
+                            leftAxis.setDrawGridLines(true);//是否显示网格线
 
                         }else{
                             leftAxis.setEnabled(false);
                         }
 
-                        if(!isAR){
-
-                            //                            //设置数据1  参数1：数据源 参数2：图例名称
-                            //                            final LineDataSet set2 = new LineDataSet(areaValues, "");
-                            //                            set2.setColor(getResources().getColor(R.color.hd_red));
-                            //                            set2.setCircleColor(Color.RED);
-                            //                            set2.setCircleColorHole(Color.RED);
-                            //                            set2.setLineWidth(1.4f);//设置线宽
-                            //                            set2.setCircleRadius(3f);//设置焦点圆心的大小
-                            //                            set2.enableDashedHighlightLine(10f, 5f, 0f);//点击后的高亮线的显示样式
-                            //                            //                            set2.setHighlightLineWidth(2f);//设置点击交点后显示高亮线宽
-                            //                            set2.setHighlightEnabled(true);//是否禁用点击高亮线
-                            //                            set2.setHighLightColor(Color.RED);//设置点击交点后显示交高亮线的颜色
-                            //                            set2.setValueTextSize(9f);//设置显示值的文字大小
-                            //                            set2.setDrawValues(false);//设置是否显示数据文字
-                            //                            set2.setDrawFilled(true);//设置禁用范围背景填充
-                            //                            set2.setFillColor(getResources().getColor(R.color.hd_red));
-                            //                            set2.setDrawCircles(false);//设置是否显示点
-                            //                            set2.setCubicIntensity(2f);//折线弯曲程度
-                            //                            set2.setAxisDependency(YAxis.AxisDependency.LEFT);
-
-                            //                            dataSets.add(set2);
-
-                            addLineOne(dataSets,areaValues,true,getResources().getColor(R.color.hd_red));
-
-                            leftAxis.setEnabled(true);
-                        }else{
-                            if(isW){
-                                leftAxis.setEnabled(false);
-                            }else{
-                                leftAxis.setEnabled(true);
-                            }
-                        }
+                        //                        if(!isAR){
+                        //
+                        //                            //                            //设置数据1  参数1：数据源 参数2：图例名称
+                        //                            //                            final LineDataSet set2 = new LineDataSet(areaValues, "");
+                        //                            //                            set2.setColor(getResources().getColor(R.color.hd_red));
+                        //                            //                            set2.setCircleColor(Color.RED);
+                        //                            //                            set2.setCircleColorHole(Color.RED);
+                        //                            //                            set2.setLineWidth(1.4f);//设置线宽
+                        //                            //                            set2.setCircleRadius(3f);//设置焦点圆心的大小
+                        //                            //                            set2.enableDashedHighlightLine(10f, 5f, 0f);//点击后的高亮线的显示样式
+                        //                            //                            //                            set2.setHighlightLineWidth(2f);//设置点击交点后显示高亮线宽
+                        //                            //                            set2.setHighlightEnabled(true);//是否禁用点击高亮线
+                        //                            //                            set2.setHighLightColor(Color.RED);//设置点击交点后显示交高亮线的颜色
+                        //                            //                            set2.setValueTextSize(9f);//设置显示值的文字大小
+                        //                            //                            set2.setDrawValues(false);//设置是否显示数据文字
+                        //                            //                            set2.setDrawFilled(true);//设置禁用范围背景填充
+                        //                            //                            set2.setFillColor(getResources().getColor(R.color.hd_red));
+                        //                            //                            set2.setDrawCircles(false);//设置是否显示点
+                        //                            //                            set2.setCubicIntensity(2f);//折线弯曲程度
+                        //                            //                            set2.setAxisDependency(YAxis.AxisDependency.LEFT);
+                        //
+                        //                            //                            dataSets.add(set2);
+                        //
+                        ////                            addLineOne(dataSets,areaValues,true,getResources().getColor(R.color.hd_red));
+                        //
+                        //                            leftAxis.setEnabled(true);
+                        //                        }else{
+                        //                            if(isW){
+                        //                                leftAxis.setEnabled(false);
+                        //                            }else{
+                        //                                leftAxis.setEnabled(true);
+                        //                            }
+                        //                        }
 
                         //获取此图表的x轴
                         final XAxis xAxis = chart.getXAxis();
@@ -1179,6 +1208,7 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
         set0.setDrawFilled(true);//设置禁用范围背景填充
         set0.setDrawCircles(false);//设置是否显示点
         set0.setCubicIntensity(2f);//折线弯曲程度
+        set0.setFillColor(getResources().getColor(R.color.hd_blue_1));
         set0.setAxisDependency(YAxis.AxisDependency.RIGHT);
         sets.add(set0);
     }
@@ -1186,25 +1216,44 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
     private void addLineOne(ArrayList<ILineDataSet>sets,ArrayList<Entry> values,boolean ishave,int color){
         //设置数据1  参数1：数据源 参数2：图例名称
         final LineDataSet set1 = new LineDataSet(values, "");
-        set1.setColor(getResources().getColor(R.color.hd_red));
-        set1.setCircleColor(Color.RED);
+        set1.setColor(color);
+        set1.setCircleColor(color);
         set1.setLineWidth(1.4f);//设置线宽
         set1.setCircleRadius(3f);//设置焦点圆心的大小
         set1.enableDashedHighlightLine(10f, 5f, 0f);//点击后的高亮线的显示样式
         //                            set1.setHighlightLineWidth(2f);//设置点击交点后显示高亮线宽
         set1.setHighlightEnabled(true);//是否禁用点击高亮线
-        set1.setHighLightColor(Color.RED);//设置点击交点后显示交高亮线的颜色
+        set1.setHighLightColor(color);//设置点击交点后显示交高亮线的颜色
         set1.setValueTextSize(9f);//设置显示值的文字大小
         set1.setDrawValues(false);//设置是否显示数据文字
-        set1.setDrawFilled(ishave);//设置禁用范围背景填充
-        set1.setFillColor(color);
+        set1.setDrawFilled(false);//设置禁用范围背景填充
         set1.setDrawCircles(false);//设置是否显示点
         set1.setCubicIntensity(2f);//折线弯曲程度
         set1.setAxisDependency(YAxis.AxisDependency.LEFT);
-        dataSets.add(set1);
+        sets.add(set1);
 
     }
+    private void addLineTWO(ArrayList<ILineDataSet>sets,ArrayList<Entry> values,boolean ishave,int color){
+        //设置数据1  参数1：数据源 参数2：图例名称
+        LineDataSet set2= new LineDataSet(values, "");
+        set2.setCircleColor(Color.RED);
+        set2.setColor(getResources().getColor(R.color.hd_red_1));
+        set2.setLineWidth(1.4f);//设置线宽
+        set2.setCircleRadius(3f);//设置焦点圆心的大小
+        set2.enableDashedHighlightLine(10f, 5f, 0f);//点击后的高亮线的显示样式
+        //                            set0.setHighlightLineWidth(2f);//设置点击交点后显示高亮线宽
+        set2.setHighlightEnabled(true);//是否禁用点击高亮线
+        set2.setHighLightColor(Color.RED);//设置点击交点后显示交高亮线的颜色
+        set2.setValueTextSize(9f);//设置显示值的文字大小
+        set2.setDrawValues(false);//设置是否显示数据文字
+        set2.setDrawFilled(true);//设置禁用范围背景填充
+        set2.setFillColor(getResources().getColor(R.color.hd_red_1));
+        set2.setDrawCircles(false);//设置是否显示点
+        set2.setCubicIntensity(2f);//折线弯曲程度
+        set2.setAxisDependency(YAxis.AxisDependency.LEFT);
+        sets.add(set2);
 
+    }
     /*车辆行驶轨迹*/
     private void setMapTracking(final List<GPSDataBean> gpsDataList, RealTimeTruckBean bean) {
         List<Integer> colorList=new ArrayList<>();

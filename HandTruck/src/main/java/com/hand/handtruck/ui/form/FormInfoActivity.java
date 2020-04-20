@@ -72,6 +72,7 @@ import com.hand.handtruck.ui.form.bean.WeiBean;
 import com.hand.handtruck.ui.form.bean.WeiLan;
 import com.hand.handtruck.ui.form.presenter.OrderInfoTask;
 import com.hand.handtruck.utils.DateUtil;
+import com.hand.handtruck.utils.LatlngUtil;
 import com.hand.handtruck.utils.LogUtil;
 import com.hand.handtruck.utils.Tools;
 import com.hand.handtruck.view.MapContainer;
@@ -140,8 +141,9 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
     private HashMap<String, String> mapParams;
     private  final ArrayList<Circle> cicleList=new ArrayList<>();
     private   List<WeiBean> wBean;
+    private String isCicre="0";
     private String idHaveCity="0";
-    private    List<LatLng> llis=new ArrayList<>();
+    private    List<LatLng> xingllis=new ArrayList<>();
     private TextView tv_company_name,tv_order_carnuber,tv_ji_tuan,tv_order_number,tv_pake_type,tv_pake_weight
             ,tv_order_status,tv_out_date,tv_end_date,tv_out_address;
     private RelativeLayout rl_content_more,rl_fu_ceng;
@@ -249,7 +251,7 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
                     int size =glist.size();
 
                     for (int i = 0; i < size ; i++) {
-                        if("1".equals(idHaveCity)){
+                        if("1".equals(isCicre)){
                             //判断点是否在围栏内
                             Double lat1=Double.parseDouble(glist.get(i).getY());
                             Double lat2=Double.parseDouble(glist.get(i).getX());
@@ -282,24 +284,43 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
                                 //获取重量
                                 areaValues.add(new Entry(i, 5000f));
                             }else{
-                                //获取重量
-                                areaValues.add(new Entry(i, 0f));
-                            }
-                        }else if("2".equals(idHaveCity)){
-                            //判断点是否在围栏内
-                            Double lat1=Double.parseDouble(glist.get(i).getY());
-                            Double lat2=Double.parseDouble(glist.get(i).getX());
-                            LatLng lat=new LatLng(lat1,lat2);
-                            boolean isIN=PtInPolygon(lat,llis);
-                            if(isIN){
-                                //获取重量
-                                areaValues.add(new Entry(i, 5000f));
-                            }else{
-                                //获取重量
-                                areaValues.add(new Entry(i, 0f));
-                            }
+                                if("2".equals(idHaveCity)){
+                                    //判断点是否在围栏内
+                                    Double lat10=Double.parseDouble(glist.get(i).getY());
+                                    Double lat20=Double.parseDouble(glist.get(i).getX());
+                                    LatLng lat0=new LatLng(lat10,lat20);
+                                    boolean isIN=PtInPolygon(lat0,xingllis);
+                                    if(isIN){
+                                        //获取重量
+                                        areaValues.add(new Entry(i, 5000f));
+                                    }else{
+                                        //获取重量
+                                        areaValues.add(new Entry(i, 0f));
+                                    }
 
+                                }else{
+                                    //获取重量
+                                    areaValues.add(new Entry(i, 0f));
+                                }
+                            }
+                        }else{
+                            if("2".equals(idHaveCity)){
+                                //判断点是否在围栏内
+                                Double lat1=Double.parseDouble(glist.get(i).getY());
+                                Double lat2=Double.parseDouble(glist.get(i).getX());
+                                LatLng lat=new LatLng(lat1,lat2);
+                                boolean isIN=PtInPolygon(lat,xingllis);
+                                if(isIN){
+                                    //获取重量
+                                    areaValues.add(new Entry(i, 5000f));
+                                }else{
+                                    //获取重量
+                                    areaValues.add(new Entry(i, 0f));
+                                }
+
+                            }
                         }
+
                         //                        else{
                         //                            areaValues.clear();
                         //                        }
@@ -322,16 +343,16 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
                     }
 
                     DecimalFormat df = new DecimalFormat("0.00");//
-                    float  maxWei= Collections.max(weilist);//取最大值
-                    maxWei= Float.parseFloat(df.format(Math.ceil(maxWei)));//向上取整
-                    if(maxWei <50){
-                        maxWei=50f;
-                    }
+                    float  maxWei1= Collections.max(weilist);//取最大值
+                    maxWei1= Float.parseFloat(df.format(Math.ceil(maxWei1)));//向上取整
+                    int  weiYU1=(int)(maxWei1/5);
+                    maxWei1=5*(weiYU1+1);
+
                     if(areaValues !=null && areaValues.size() >0){
                         for(int k=0 ;k<areaValues.size();k++){
                             float y=  areaValues.get(k).getY();
                             if(y==5000f){
-                                areaValues.get(k).setY(maxWei);
+                                areaValues.get(k).setY(maxWei1);
                             }
                         }
 
@@ -686,12 +707,17 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
                     if(cicleList !=null && cicleList.size() >0){
                         cicleList.clear();
                     }
+
+                    if(xingllis !=null && xingllis.size() >0){
+                        xingllis.clear();
+                    }
                     if(list !=null && list.size() >0) {
                         for (int j = 0; j < list.size(); j++) {
                             WeiBean bean = list.get(j);
                             String type=bean.getType();//1.圆，2 行政区域 3自定义
                             String tag=bean.getTag();//1，区域围栏 2 经销商围栏
                             if("1".equals(type)){
+                                DLog.e("FormInfoActivity","doHaveLat/1="+type);
                                 String lat=bean.getLat();
                                 String lon=bean.getLng();
                                 String  r=bean.getR();
@@ -706,46 +732,45 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
                                             fillColor(Color.argb(170, 238, 89, 83)).
                                             strokeColor(Color.argb(170, 13, 130, 235)).
                                             strokeWidth(3f));
-                                    if("1".equals(tag)){
-                                        myCircle.setFillColor(Color.argb(102, 129, 247, 81));
-                                    }
+//                                    if("1".equals(tag)){
+//                                        myCircle.setFillColor(Color.argb(102, 129, 247, 81));
+//                                    }
                                     cicleList.add(myCircle);
-                                    idHaveCity="1";
+                                    isCicre="1";
                                 }
                             }else if("3".equals(type)){
                                 DLog.e("FormInfoActivity","doHaveLat/3="+type);
                                 String data=bean.getRailData();
                                 List<WeiLan> wllis  =jsonToBeanList(data,WeiLan.class);
+                                List<LatLng>  list3=new ArrayList<>();
                                 for (int i = 0; i < wllis.size(); i++) {
                                     WeiLan point = wllis.get(i);
                                     Double lat1 = Double.parseDouble(point.getLat());
                                     Double lat2 = Double.parseDouble(point.getLng());
                                     LatLng lat = new LatLng(lat1, lat2);
-                                    llis.add(lat);
+                                    list3.add(lat);
+                                    xingllis.add(lat);
                                 }
                                 // 声明 多边形参数对象
                                 PolygonOptions polygonOptions = new PolygonOptions();
                                 // 添加 多边形的每个顶点（顺序添加）
-                                for (int t = 0; t < llis.size(); t++) {
-                                    LatLng latp = llis.get(t);
+                                for (int t = 0; t < list3.size(); t++) {
+                                    LatLng latp = list3.get(t);
                                     polygonOptions.add(latp);
                                 }
-                                polygonOptions.strokeWidth(4) // 多边形的边框 深绿色:#98ED84
+                                polygonOptions.strokeWidth(4) // 多边形的边框 深绿色:#98ED84  64ee5953
                                         .strokeColor(Color.argb(100, 13, 130, 235)) // 边框颜色
                                         .fillColor(Color.argb(100, 238, 89, 83));   // 多边形的填充色
-                                if("1".equals(tag)){
-                                    polygonOptions.fillColor(Color.argb(102, 129, 247, 81));
-                                }
+//                                if("1".equals(tag)){
+//                                    polygonOptions.fillColor(Color.argb(102, 129, 247, 81));
+//                                }
 
                                 mAMap.addPolygon(polygonOptions);
                                 idHaveCity="2";
                             }else{
                                 try{
 
-                                    if(llis !=null && llis.size() >0){
-                                        llis.clear();
-                                    }
-                                    DLog.e("FormInfoActivity","doHaveLat/2="+type);
+                                    DLog.e("FormInfoActivity","doHaveLat1/2="+type);
                                     String data=bean.getRailData();//可能出现多个多边形
                                     try{
                                         JSONArray jsonArray = new JSONArray(data);  //"railData": "[[{}]]
@@ -757,52 +782,61 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
 
                                             List<WeiLan> wllis  =jsonToBeanList(string,WeiLan.class);
                                             DLog.e("FormInfoActivity","doHaveLat/wllis="+wllis.size());
+
+                                            List<LatLng>  list31=new ArrayList<>();
                                             for (int i = 0; i < wllis.size(); i++) {
                                                 WeiLan point = wllis.get(i);
                                                 Double lat1 = Double.parseDouble(point.getLat());
                                                 Double lat2 = Double.parseDouble(point.getLng());
                                                 LatLng lat = new LatLng(lat1, lat2);
-                                                llis.add(lat);
+                                                xingllis.add(lat);
+                                                list31.add(lat);
                                             }
                                             // 声明 多边形参数对象
                                             PolygonOptions polygonOptions = new PolygonOptions();
                                             // 添加 多边形的每个顶点（顺序添加）
-                                            for (int t = 0; t < llis.size(); t++) {
-                                                LatLng latp = llis.get(t);
+                                            for (int t = 0; t < list31.size(); t++) {
+                                                LatLng latp = list31.get(t);
                                                 polygonOptions.add(latp);
                                             }
                                             polygonOptions.strokeWidth(4) // 多边形的边框 深绿色:#98ED84
                                                     .strokeColor(Color.argb(100, 13, 130, 235)) // 边框颜色
                                                     .fillColor(Color.argb(100, 238, 89, 83));   // 多边形的填充色
-                                            if("1".equals(tag)){
-                                                polygonOptions.fillColor(Color.argb(102, 129, 247, 81));
-                                            }
+//                                            if("1".equals(tag)){
+//                                                polygonOptions.fillColor(Color.argb(102, 129, 247, 81));
+//                                            }
 
                                             mAMap.addPolygon(polygonOptions);
 
                                         }
                                     }catch (IllegalStateException e){
                                         List<WeiLan> wllis  =jsonToBeanList(data,WeiLan.class);  //"railData": "[{}]
+                                        DLog.e("FormInfoActivity","doHaveLat1/wllis="+wllis.size());
+
+                                        List<LatLng>  list32=new ArrayList<>();
                                         for (int i = 0; i < wllis.size(); i++) {
                                             WeiLan point = wllis.get(i);
                                             Double lat1 = Double.parseDouble(point.getLat());
                                             Double lat2 = Double.parseDouble(point.getLng());
                                             LatLng lat = new LatLng(lat1, lat2);
-                                            llis.add(lat);
+                                            xingllis.add(lat);
+                                            list32.add(lat);
                                         }
+
+//                                        xingllis=doDelUnUse(xingllis);
                                         // 声明 多边形参数对象
                                         PolygonOptions polygonOptions = new PolygonOptions();
                                         // 添加 多边形的每个顶点（顺序添加）
-                                        for (int t = 0; t < llis.size(); t++) {
-                                            LatLng latp = llis.get(t);
+                                        for (int t = 0; t < list32.size(); t++) {
+                                            LatLng latp = list32.get(t);
                                             polygonOptions.add(latp);
                                         }
                                         polygonOptions.strokeWidth(4) // 多边形的边框 深绿色:#98ED84
                                                 .strokeColor(Color.argb(100, 13, 130, 235)) // 边框颜色
                                                 .fillColor(Color.argb(100, 238, 89, 83));   // 多边形的填充色
-                                        if("1".equals(tag)){
-                                            polygonOptions.fillColor(Color.argb(102, 129, 247, 81));
-                                        }
+//                                        if("1".equals(tag)){
+//                                            polygonOptions.fillColor(Color.argb(102, 129, 247, 81));
+//                                        }
 
                                         mAMap.addPolygon(polygonOptions);
 
@@ -817,6 +851,7 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
                         }
                     }else {
                         idHaveCity="0";
+                        isCicre="0";
                     }
                 }
             }).start();
@@ -1047,48 +1082,50 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
                             }
                         });
 
+
                         if(!isW){
+                            addLineTWO(dataSets,areaValues,true,getResources().getColor(R.color.hd_jian_red1));
                             addLineOne(dataSets,wegValues,false,getResources().getColor(R.color.hd_red));
 
                             leftAxis.setEnabled(true);
-
+                            leftAxis.setDrawGridLines(true);//是否显示网格线
                         }else{
                             leftAxis.setEnabled(false);
                         }
 
-                        if(!isAR){
-
-                            //                            //设置数据1  参数1：数据源 参数2：图例名称
-                            //                            final LineDataSet set2 = new LineDataSet(areaValues, "");
-                            //                            set2.setColor(getResources().getColor(R.color.hd_red));
-                            //                            set2.setCircleColor(Color.RED);
-                            //                            set2.setCircleColorHole(Color.RED);
-                            //                            set2.setLineWidth(1.4f);//设置线宽
-                            //                            set2.setCircleRadius(3f);//设置焦点圆心的大小
-                            //                            set2.enableDashedHighlightLine(10f, 5f, 0f);//点击后的高亮线的显示样式
-                            //                            //                            set2.setHighlightLineWidth(2f);//设置点击交点后显示高亮线宽
-                            //                            set2.setHighlightEnabled(true);//是否禁用点击高亮线
-                            //                            set2.setHighLightColor(Color.RED);//设置点击交点后显示交高亮线的颜色
-                            //                            set2.setValueTextSize(9f);//设置显示值的文字大小
-                            //                            set2.setDrawValues(false);//设置是否显示数据文字
-                            //                            set2.setDrawFilled(true);//设置禁用范围背景填充
-                            //                            set2.setFillColor(getResources().getColor(R.color.hd_red));
-                            //                            set2.setDrawCircles(false);//设置是否显示点
-                            //                            set2.setCubicIntensity(2f);//折线弯曲程度
-                            //                            set2.setAxisDependency(YAxis.AxisDependency.LEFT);
-
-                            //                            dataSets.add(set2);
-
-                            addLineOne(dataSets,areaValues,true,getResources().getColor(R.color.hd_red_1));
-
-                            leftAxis.setEnabled(true);
-                        }else{
-                            if(isW){
-                                leftAxis.setEnabled(false);
-                            }else{
-                                leftAxis.setEnabled(true);
-                            }
-                        }
+//                        if(!isAR){
+//
+//                            //                            //设置数据1  参数1：数据源 参数2：图例名称
+//                            //                            final LineDataSet set2 = new LineDataSet(areaValues, "");
+//                            //                            set2.setColor(getResources().getColor(R.color.hd_red));
+//                            //                            set2.setCircleColor(Color.RED);
+//                            //                            set2.setCircleColorHole(Color.RED);
+//                            //                            set2.setLineWidth(1.4f);//设置线宽
+//                            //                            set2.setCircleRadius(3f);//设置焦点圆心的大小
+//                            //                            set2.enableDashedHighlightLine(10f, 5f, 0f);//点击后的高亮线的显示样式
+//                            //                            //                            set2.setHighlightLineWidth(2f);//设置点击交点后显示高亮线宽
+//                            //                            set2.setHighlightEnabled(true);//是否禁用点击高亮线
+//                            //                            set2.setHighLightColor(Color.RED);//设置点击交点后显示交高亮线的颜色
+//                            //                            set2.setValueTextSize(9f);//设置显示值的文字大小
+//                            //                            set2.setDrawValues(false);//设置是否显示数据文字
+//                            //                            set2.setDrawFilled(true);//设置禁用范围背景填充
+//                            //                            set2.setFillColor(getResources().getColor(R.color.hd_red));
+//                            //                            set2.setDrawCircles(false);//设置是否显示点
+//                            //                            set2.setCubicIntensity(2f);//折线弯曲程度
+//                            //                            set2.setAxisDependency(YAxis.AxisDependency.LEFT);
+//
+//                            //                            dataSets.add(set2);
+//
+//
+//
+//                            leftAxis.setEnabled(true);
+//                        }else{
+//                            if(isW){
+//                                leftAxis.setEnabled(false);
+//                            }else{
+//                                leftAxis.setEnabled(true);
+//                            }
+//                        }
 
                         //获取此图表的x轴
                         final XAxis xAxis = chart.getXAxis();
@@ -1277,6 +1314,7 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
         set0.setDrawFilled(true);//设置禁用范围背景填充
         set0.setDrawCircles(false);//设置是否显示点
         set0.setCubicIntensity(2f);//折线弯曲程度
+        set0.setFillColor(getResources().getColor(R.color.hd_blue_1));
         set0.setAxisDependency(YAxis.AxisDependency.RIGHT);
         sets.add(set0);
     }
@@ -1294,12 +1332,33 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
         set1.setHighLightColor(color);//设置点击交点后显示交高亮线的颜色
         set1.setValueTextSize(9f);//设置显示值的文字大小
         set1.setDrawValues(false);//设置是否显示数据文字
-        set1.setDrawFilled(ishave);//设置禁用范围背景填充
-        set1.setFillColor(color);
+        set1.setDrawFilled(false);//设置禁用范围背景填充
         set1.setDrawCircles(false);//设置是否显示点
         set1.setCubicIntensity(2f);//折线弯曲程度
         set1.setAxisDependency(YAxis.AxisDependency.LEFT);
-        dataSets.add(set1);
+        sets.add(set1);
+
+    }
+
+    private void addLineTWO(ArrayList<ILineDataSet>sets,ArrayList<Entry> values,boolean ishave,int color){
+        //设置数据1  参数1：数据源 参数2：图例名称
+        LineDataSet set2= new LineDataSet(values, "");
+        set2.setCircleColor(Color.RED);
+        set2.setColor(getResources().getColor(R.color.hd_red_1));
+        set2.setLineWidth(1.4f);//设置线宽
+        set2.setCircleRadius(3f);//设置焦点圆心的大小
+        set2.enableDashedHighlightLine(10f, 5f, 0f);//点击后的高亮线的显示样式
+        //                            set0.setHighlightLineWidth(2f);//设置点击交点后显示高亮线宽
+        set2.setHighlightEnabled(true);//是否禁用点击高亮线
+        set2.setHighLightColor(Color.RED);//设置点击交点后显示交高亮线的颜色
+        set2.setValueTextSize(9f);//设置显示值的文字大小
+        set2.setDrawValues(false);//设置是否显示数据文字
+        set2.setDrawFilled(true);//设置禁用范围背景填充
+        set2.setFillColor(getResources().getColor(R.color.hd_red_1));
+        set2.setDrawCircles(false);//设置是否显示点
+        set2.setCubicIntensity(2f);//折线弯曲程度
+        set2.setAxisDependency(YAxis.AxisDependency.LEFT);
+        sets.add(set2);
 
     }
 
@@ -1683,6 +1742,33 @@ public class FormInfoActivity extends Activity implements View.OnClickListener {
         }
         // 单边交点为偶数，点在多边形之外 ---
         return (nCross % 2 == 1);
+    }
+
+    //GPS数据  除去 经纬度一样的数据
+    private List<LatLng> doDelUnUse(List<LatLng> gList){
+        if(gList ==null || gList.size() <=0){
+            return new ArrayList<>();
+        }
+        for(int i=0;i<gList.size();i++){
+            LatLng b1=gList.get(i);
+            double x1=b1.latitude;
+            double y1=b1.longitude;
+            if(0==x1 || 0==y1){ //经纬度为0 去掉
+                gList.remove(i);
+            }else{
+                if(i!=0){
+                    LatLng b0=gList.get(i-1);
+                    double cha=LatlngUtil.distance(b1.longitude,b1.latitude,b0.longitude,b0.latitude);
+                    if(cha >0.1){
+                        gList.remove(i);
+                    }
+                }else{
+                    gList.remove(0);
+                }
+            }
+
+        }
+        return gList;
     }
 
 
