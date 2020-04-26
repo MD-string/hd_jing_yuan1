@@ -289,6 +289,9 @@ public class FormInfoFrgment extends BaseFragment implements View.OnClickListene
                                         areaValues.add(new Entry(i, 0f));
                                     }
 
+                                }else{
+                                    //获取重量
+                                    areaValues.add(new Entry(i, 0f));
                                 }
                             }
                         }else{
